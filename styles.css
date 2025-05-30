@@ -1,7 +1,6 @@
 body {
   transition: background-color 0.3s ease;
 }
-
 body.light {
   background: linear-gradient(to right, #e0f7fa, #fff3e0);
   color: #000;
@@ -18,7 +17,6 @@ body.dark .card {
   background-color: #1e1e1e;
   color: #f1f1f1;
 }
-
 .note-text {
   font-size: 0.9rem;
 }
@@ -28,8 +26,6 @@ body.light .note-text {
 body.dark .note-text {
   color: #cccccc;
 }
-
-/* Zikr meaning + daily ayah visible in both themes */
 .zikr-meaning {
   font-size: 0.9rem;
 }
@@ -39,7 +35,6 @@ body.light .zikr-meaning {
 body.dark .zikr-meaning {
   color: #cccccc;
 }
-
 select {
   max-width: 500px;
   margin: 0 auto;
@@ -48,8 +43,4 @@ footer a {
   text-decoration: none;
   color: inherit;
 }
-
-  
-  
-  
-  
+ 
