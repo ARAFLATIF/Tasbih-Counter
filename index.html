@@ -4,35 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tasbih Counter</title>
-  <link rel="manifest" href="manifest.json">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container py-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+  <div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
       <h2 class="fw-bold">Tasbih Counter</h2>
       <button class="btn btn-sm btn-outline-secondary" id="themeToggle">🌙 / ☀️</button>
     </div>
 
-    <div class="card shadow-lg rounded-4 p-4 text-center" id="zikrCard">
-      <select class="form-select mb-4" id="zikrSelect" onchange="switchZikr(this.value)">
-        <option value="SubhanAllah">سُبْحَانَ ٱللَّٰه (SubhanAllah)</option>
-        <option value="Alhamdulillah">ٱلْـحَمْـدُ لِلّٰه (Alhamdulillah)</option>
-        <option value="AllahuAkbar">ٱللَّٰهُ أَكْبَر (Allahu Akbar)</option>
-        <option value="LaIlaha">لَا إِلٰهَ إِلَّا ٱللَّٰه (La ilaha illallah)</option>
-        <option value="Astaghfirullah">أَسْتَغْفِرُ ٱللَّٰه (Astaghfirullah)</option>
-        <option value="LaHawla">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ (La hawla wa la quwwata illa billah)</option>
+    <div class="card shadow rounded-4 p-4 text-center mb-4">
+      <select class="form-select mb-3" id="zikrSelect" onchange="switchZikr(this.value)">
+        <!-- Populated dynamically -->
       </select>
 
-      <div class="display-3 fw-bold text-primary" id="count">0</div>
+      <div id="zikrArabic" class="fs-3 fw-semibold mb-1"></div>
+      <div id="zikrMeaning" class="zikr-meaning mb-3 small"></div>
 
-      <div class="mt-4">
+      <div class="display-4 fw-bold text-primary" id="count">0</div>
+      <div class="mt-3">
         <button class="btn btn-success btn-lg px-4 me-2" onclick="incrementCounter()">+1</button>
         <button class="btn btn-danger btn-lg px-4" onclick="resetCounter()">Reset</button>
       </div>
+      <p class="mt-3 note-text">Zikr count saved per type. Total Zikr: <span id="totalCount">0</span></p>
+    </div>
 
-      <p class="mt-3 note-text">Zikr count saved per type and works offline.</p>
+    <div class="card p-3 mb-4">
+      <h5 class="mb-2">🕋 Prayer Tools</h5>
+      <ul class="list-unstyled small mb-0">
+        <li><a href="https://www.islamicfinder.org/world/" target="_blank">Check Local Prayer Times</a></li>
+        <li><a href="https://qiblafinder.withgoogle.com/" target="_blank">Find Qibla Direction</a></li>
+      </ul>
+    </div>
+
+    <div class="card p-3 mb-4" id="ayahCard">
+      <h6 class="mb-2">📖 Daily Ayah</h6>
+      <blockquote id="dailyAyah" class="small fst-italic zikr-meaning mb-0"></blockquote>
     </div>
 
     <footer class="text-center mt-5 note-text">
@@ -41,16 +49,5 @@
   </div>
 
   <script src="script.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log("✅ Service Worker Registered"))
-        .catch(err => console.error("SW registration failed:", err));
-    }
-  </script>
 </body>
 </html>
-
-
-
-
