@@ -1,3 +1,5 @@
+console.log("JavaScript loaded");
+
 const zikrSelect = document.getElementById("zikrSelect");
 const countDisplay = document.getElementById("count");
 const totalDisplay = document.getElementById("totalCount");
@@ -116,4 +118,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const ayahIndex = new Date().getDate() % ayahs.length;
   dailyAyah.textContent = ayahs[ayahIndex];
 });
+
 
