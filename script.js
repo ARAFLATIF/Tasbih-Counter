@@ -65,7 +65,7 @@ function updateDisplay() {
   countDisplay.textContent = zikrCounts[currentZikr] || 0;
   arabicDisplay.textContent = zikrs[currentZikr].arabic;
   meaningDisplay.textContent = `${zikrs[currentZikr].translit} — ${zikrs[currentZikr].meaning}`;
-  let total = Object.values(zikrCounts).reduce((sum, n) => sum + n, 0);
+  const total = Object.values(zikrCounts).reduce((a, b) => a + b, 0);
   totalDisplay.textContent = total;
 }
 
@@ -118,5 +118,4 @@ document.addEventListener("DOMContentLoaded", () => {
   const ayahIndex = new Date().getDate() % ayahs.length;
   dailyAyah.textContent = ayahs[ayahIndex];
 });
-
 
