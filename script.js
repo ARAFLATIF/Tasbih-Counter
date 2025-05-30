@@ -116,3 +116,4 @@ document.addEventListener("DOMContentLoaded", () => {
   const ayahIndex = new Date().getDate() % ayahs.length;
   dailyAyah.textContent = ayahs[ayahIndex];
 });
+
